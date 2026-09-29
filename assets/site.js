@@ -77,10 +77,10 @@
     }
 
     document.title = `${game.title} — GameShelf`;
-    document.querySelector('meta[name="description"]').content = `Download ${game.title}: main archive parts and an update on Google Drive.`;
+    document.querySelector('meta[name="description"]').content = `Download files for ${game.title} on Google Drive.`;
     document.getElementById('breadcrumb-current').textContent = game.shortTitle;
     const mainFileCount = game.files.filter((file) => file.kind === 'main').length;
-    const updateFile = game.files.find((file) => file.kind === 'update');
+    const extraFiles = game.files.filter((file) => file.kind !== 'main');
 
     const hero = element('section', 'detail-hero');
     hero.setAttribute('aria-labelledby', 'game-title');
@@ -108,7 +108,9 @@
     main.append(sectionTitle);
     main.append(element('p', 'download-intro', mainFileCount > 1
       ? 'Download every main part first and keep them in the same folder. Updates are listed separately.'
-      : 'One game archive is available. Open it on Google Drive to download.'));
+      : extraFiles.length
+        ? 'Download the main archive first. Additional files are listed separately.'
+        : 'One game archive is available. Open it on Google Drive to download.'));
 
     const list = element('ol', 'file-list');
     game.files.forEach((file, index) => {
@@ -118,7 +120,7 @@
       const info = element('div', 'file-info');
       const row = element('div', 'file-title-row');
       row.append(element('h3', '', file.label));
-      row.append(element('span', file.kind === 'update' ? 'file-kind is-update' : 'file-kind', file.kind === 'update' ? 'UPDATE' : 'MAIN ARCHIVE'));
+      row.append(element('span', file.kind === 'main' ? 'file-kind' : 'file-kind is-update', file.kind === 'main' ? 'MAIN ARCHIVE' : file.kind.toUpperCase()));
       info.append(row);
       info.append(element('p', 'file-name', file.filename));
       info.append(element('span', 'file-size', formatBytes(file.sizeBytes)));
@@ -140,13 +142,13 @@
     aside.append(element('h2', '', 'Ready to begin?'));
     aside.append(element('p', '', mainFileCount > 1
       ? 'Keep all main parts in the same folder. Each download button opens its file on Google Drive.'
-      : 'Use the download button to open the archive on Google Drive. Drive may ask you to confirm large files.'));
-    if (updateFile) {
+      : 'Each download button opens its file on Google Drive. Drive may ask you to confirm large files.'));
+    extraFiles.forEach((file) => {
       const note = element('div', 'aside-note');
       note.append(element('span', 'note-dot'));
-      note.append(element('span', '', `${updateFile.label} is provided separately.`));
+      note.append(element('span', '', `${file.label} is provided separately.`));
       aside.append(note);
-    }
+    });
     layout.append(aside);
     container.append(layout);
 

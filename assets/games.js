@@ -1,5 +1,5 @@
 /**
- * @typedef {{label: string, filename: string, sizeBytes: number, url: string, kind: 'main' | 'update'}} GameFile
+ * @typedef {{label: string, filename: string, sizeBytes: number, url: string, kind: 'main' | 'update' | 'patch'}} GameFile
  * @typedef {{slug: string, title: string, shortTitle: string, subtitle: string, artwork: string, artworkAlt: string, files: GameFile[]}} Game
  */
 
@@ -50,6 +50,37 @@ window.GAMES = [
         sizeBytes: 3191149706,
         url: 'https://drive.google.com/file/d/1_MjjHbov3R1q3hcp2xc6mYgKSNb27WtV/view?usp=sharing',
         kind: 'main'
+      }
+    ]
+  },
+  {
+    slug: 'yahari-game-demo-oregairu-kan',
+    title: 'Yahari Game demo Ore no Seishun Love Come wa Machigatteiru. Kan',
+    shortTitle: 'OreGairu Kan',
+    subtitle: 'Yahari Game demo Ore no Seishun Love Come wa Machigatteiru.',
+    artwork: './assets/oregairu-kan-cover.png',
+    artworkAlt: 'Cover showing three school students beneath cherry blossoms',
+    files: [
+      {
+        label: 'Game archive',
+        filename: 'After all, even in games, my youth romantic comedy is wrong. finish [010066801A138000][JP][v0] [taodung.com].rar',
+        sizeBytes: 1192926163,
+        url: 'https://drive.google.com/file/d/14RhZ6hpAvJHWtHFujAorYpSDd70GRPbi/view?usp=sharing',
+        kind: 'main'
+      },
+      {
+        label: 'Update',
+        filename: 'After all even in games my youth romantic comedy is wrong. finish [010066801A138800][v65536][JP] [taodung.com].rar',
+        sizeBytes: 284863443,
+        url: 'https://drive.google.com/file/d/1NJHdJ-wWvyL_CVx2nKzgQ7K1HHs7pY2t/view?usp=sharing',
+        kind: 'update'
+      },
+      {
+        label: 'English patch',
+        filename: 'oregairu.kan.switch.english-patch.7z',
+        sizeBytes: 17450117,
+        url: 'https://drive.google.com/file/d/1w24WHq0txBHmb9K4VpZN-yUMPeXtvXGM/view?usp=sharing',
+        kind: 'patch'
       }
     ]
   }
