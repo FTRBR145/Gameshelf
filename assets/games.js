@@ -35,5 +35,22 @@ window.GAMES = [
         kind: 'update'
       }
     ]
+  },
+  {
+    slug: '5toubun-no-princess',
+    title: '5toubun no Princess: Gensou to Shinen to Mahou Gakuin',
+    shortTitle: '5toubun no Princess',
+    subtitle: 'Gensou to Shinen to Mahou Gakuin',
+    artwork: './assets/princess-cover.png',
+    artworkAlt: 'Game cover showing five characters in academy uniforms',
+    files: [
+      {
+        label: 'Game archive',
+        filename: '5toubun no Princess -Gensou to Shinen to Mahou Gakuin- (XCI).rar',
+        sizeBytes: 3191149706,
+        url: 'https://drive.google.com/file/d/1_MjjHbov3R1q3hcp2xc6mYgKSNb27WtV/view?usp=sharing',
+        kind: 'main'
+      }
+    ]
   }
 ];

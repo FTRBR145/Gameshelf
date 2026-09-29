@@ -79,6 +79,8 @@
     document.title = `${game.title} — GameShelf`;
     document.querySelector('meta[name="description"]').content = `Download ${game.title}: main archive parts and an update on Google Drive.`;
     document.getElementById('breadcrumb-current').textContent = game.shortTitle;
+    const mainFileCount = game.files.filter((file) => file.kind === 'main').length;
+    const updateFile = game.files.find((file) => file.kind === 'update');
 
     const hero = element('section', 'detail-hero');
     hero.setAttribute('aria-labelledby', 'game-title');
@@ -104,7 +106,9 @@
     const sectionTitle = element('h2', '', 'Download files');
     sectionTitle.id = 'downloads-title';
     main.append(sectionTitle);
-    main.append(element('p', 'download-intro', 'Download both main parts first. The update is available separately if you need it.'));
+    main.append(element('p', 'download-intro', mainFileCount > 1
+      ? 'Download every main part first and keep them in the same folder. Updates are listed separately.'
+      : 'One game archive is available. Open it on Google Drive to download.'));
 
     const list = element('ol', 'file-list');
     game.files.forEach((file, index) => {
@@ -134,11 +138,15 @@
     aside.append(element('span', 'aside-symbol', '✦'));
     aside.append(element('p', 'eyebrow', 'DOWNLOAD NOTE'));
     aside.append(element('h2', '', 'Ready to begin?'));
-    aside.append(element('p', '', 'Keep Part 1 and Part 2 in the same folder. Each download button opens that file on Google Drive.'));
-    const note = element('div', 'aside-note');
-    note.append(element('span', 'note-dot'));
-    note.append(element('span', '', 'Update 1.0.1 is provided separately.'));
-    aside.append(note);
+    aside.append(element('p', '', mainFileCount > 1
+      ? 'Keep all main parts in the same folder. Each download button opens its file on Google Drive.'
+      : 'Use the download button to open the archive on Google Drive. Drive may ask you to confirm large files.'));
+    if (updateFile) {
+      const note = element('div', 'aside-note');
+      note.append(element('span', 'note-dot'));
+      note.append(element('span', '', `${updateFile.label} is provided separately.`));
+      aside.append(note);
+    }
     layout.append(aside);
     container.append(layout);
 
