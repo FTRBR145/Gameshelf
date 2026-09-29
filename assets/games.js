@@ -10,8 +10,8 @@ window.GAMES = [
     title: 'The Quintessential Quintuplets Five Promises With Her',
     shortTitle: 'Five Promises With Her',
     subtitle: 'The Quintessential Quintuplets',
-    artwork: './assets/coastal-dusk.webp',
-    artworkAlt: 'Ilustrasi orisinal suasana kota pesisir saat senja',
+    artwork: './assets/game-cover.png',
+    artworkAlt: 'Game cover featuring five characters by the waterfront',
     files: [
       {
         label: 'Part 1',

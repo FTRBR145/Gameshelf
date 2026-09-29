@@ -9,7 +9,7 @@
   function formatBytes(bytes) {
     const unit = bytes >= 1073741824 ? 'GiB' : 'MiB';
     const divisor = unit === 'GiB' ? 1073741824 : 1048576;
-    return `${new Intl.NumberFormat('id-ID', { maximumFractionDigits: 2 }).format(bytes / divisor)} ${unit}`;
+    return `${new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(bytes / divisor)} ${unit}`;
   }
 
   function element(tag, className, textContent) {
@@ -22,10 +22,10 @@
   function renderCatalog() {
     const grid = document.getElementById('game-grid');
     const count = document.getElementById('game-count');
-    count.textContent = `${String(games.length).padStart(2, '0')} GAME TERSEDIA`;
+    count.textContent = `${String(games.length).padStart(2, '0')} ${games.length === 1 ? 'GAME' : 'GAMES'} AVAILABLE`;
 
     if (!games.length) {
-      grid.append(element('p', 'notice', 'Belum ada game di katalog.'));
+      grid.append(element('p', 'notice', 'No games are available yet.'));
       return;
     }
 
@@ -33,25 +33,26 @@
       const article = element('article', 'game-card');
       const link = element('a', 'game-card-link');
       link.href = `./game.html?game=${encodeURIComponent(game.slug)}`;
-      link.setAttribute('aria-label', `Lihat detail ${game.title}`);
+      link.setAttribute('aria-label', `View details for ${game.title}`);
 
+      const art = element('div', 'game-card-art');
       const image = element('img', 'game-card-image');
       image.src = game.artwork;
       image.alt = game.artworkAlt;
       image.loading = index === 0 ? 'eager' : 'lazy';
       image.decoding = 'async';
-      link.append(image);
-      link.append(element('span', 'card-shade'));
+      art.append(image);
+      link.append(art);
 
       const content = element('div', 'game-card-content');
       const meta = element('div', 'game-card-meta');
-      meta.append(element('span', 'mini-pill', 'KOLEKSI ' + String(index + 1).padStart(2, '0')));
-      meta.append(element('span', 'card-file-count', `${game.files.length} FILE TERSEDIA`));
+      meta.append(element('span', 'mini-pill', 'COLLECTION ' + String(index + 1).padStart(2, '0')));
+      meta.append(element('span', 'card-file-count', `${game.files.length} ${game.files.length === 1 ? 'FILE' : 'FILES'} AVAILABLE`));
       content.append(meta);
       content.append(element('p', 'game-card-subtitle', game.subtitle));
       content.append(element('h3', 'game-card-title', game.shortTitle));
       const bottom = element('div', 'game-card-bottom');
-      bottom.append(element('span', '', 'Lihat detail game'));
+      bottom.append(element('span', '', 'View game details'));
       bottom.append(element('span', 'circle-arrow', '↗'));
       content.append(bottom);
       link.append(content);
@@ -66,17 +67,17 @@
     const game = games.find((item) => item.slug === slug);
 
     if (!game) {
-      document.title = 'Game tidak ditemukan — GameShelf';
-      container.append(element('h1', 'not-found-title', 'Game tidak ditemukan.'));
-      container.append(element('p', 'muted', 'Game ini belum tersedia di katalog.'));
-      const back = element('a', 'button button-primary', 'Kembali ke katalog');
-      back.href = './index.html#katalog';
+      document.title = 'Game not found — GameShelf';
+      container.append(element('h1', 'not-found-title', 'Game not found.'));
+      container.append(element('p', 'muted', 'This game is not in the catalog yet.'));
+      const back = element('a', 'button button-primary', 'Back to catalog');
+      back.href = './index.html#catalog';
       container.append(back);
       return;
     }
 
     document.title = `${game.title} — GameShelf`;
-    document.querySelector('meta[name="description"]').content = `Unduh ${game.title}: part utama dan update melalui Google Drive.`;
+    document.querySelector('meta[name="description"]').content = `Download ${game.title}: main archive parts and an update on Google Drive.`;
     document.getElementById('breadcrumb-current').textContent = game.shortTitle;
 
     const hero = element('section', 'detail-hero');
@@ -87,7 +88,7 @@
     hero.append(artwork);
     hero.append(element('span', 'detail-hero-shade'));
     const heroCopy = element('div', 'detail-hero-copy');
-    heroCopy.append(element('p', 'eyebrow detail-eyebrow', `GAME DETAIL / ${String(games.indexOf(game) + 1).padStart(3, '0')}`));
+    heroCopy.append(element('p', 'eyebrow detail-eyebrow', `GAME DETAILS / ${String(games.indexOf(game) + 1).padStart(3, '0')}`));
     heroCopy.append(element('p', 'detail-subtitle', game.subtitle));
     const title = element('h1', '', game.shortTitle);
     title.id = 'game-title';
@@ -99,11 +100,11 @@
     const layout = element('div', 'detail-layout');
     const main = element('section', 'downloads');
     main.setAttribute('aria-labelledby', 'downloads-title');
-    main.append(element('p', 'eyebrow section-eyebrow', 'FILE GAME'));
-    const sectionTitle = element('h2', '', 'Pilih file unduhan');
+    main.append(element('p', 'eyebrow section-eyebrow', 'GAME FILES'));
+    const sectionTitle = element('h2', '', 'Download files');
     sectionTitle.id = 'downloads-title';
     main.append(sectionTitle);
-    main.append(element('p', 'download-intro', 'Unduh kedua part utama terlebih dahulu. File update tersedia terpisah bila kamu memerlukannya.'));
+    main.append(element('p', 'download-intro', 'Download both main parts first. The update is available separately if you need it.'));
 
     const list = element('ol', 'file-list');
     game.files.forEach((file, index) => {
@@ -113,16 +114,16 @@
       const info = element('div', 'file-info');
       const row = element('div', 'file-title-row');
       row.append(element('h3', '', file.label));
-      row.append(element('span', file.kind === 'update' ? 'file-kind is-update' : 'file-kind', file.kind === 'update' ? 'PEMBARUAN' : 'ARSIP UTAMA'));
+      row.append(element('span', file.kind === 'update' ? 'file-kind is-update' : 'file-kind', file.kind === 'update' ? 'UPDATE' : 'MAIN ARCHIVE'));
       info.append(row);
       info.append(element('p', 'file-name', file.filename));
       info.append(element('span', 'file-size', formatBytes(file.sizeBytes)));
       item.append(info);
-      const link = element('a', 'button button-download', 'Buka di Drive ↗');
+      const link = element('a', 'button button-download', 'Open in Drive ↗');
       link.href = file.url;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label', `Buka ${file.label} di Google Drive, tab baru`);
+      link.setAttribute('aria-label', `Open ${file.label} in Google Drive, new tab`);
       item.append(link);
       list.append(item);
     });
@@ -131,18 +132,18 @@
 
     const aside = element('aside', 'download-aside');
     aside.append(element('span', 'aside-symbol', '✦'));
-    aside.append(element('p', 'eyebrow', 'CATATAN UNDUH'));
-    aside.append(element('h2', '', 'Siap untuk mulai?'));
-    aside.append(element('p', '', 'Simpan Part 1 dan Part 2 dalam folder yang sama. Tombol unduh akan membawamu ke halaman Google Drive untuk masing-masing file.'));
+    aside.append(element('p', 'eyebrow', 'DOWNLOAD NOTE'));
+    aside.append(element('h2', '', 'Ready to begin?'));
+    aside.append(element('p', '', 'Keep Part 1 and Part 2 in the same folder. Each download button opens that file on Google Drive.'));
     const note = element('div', 'aside-note');
     note.append(element('span', 'note-dot'));
-    note.append(element('span', '', 'File update 1.0.1 disediakan secara terpisah.'));
+    note.append(element('span', '', 'Update 1.0.1 is provided separately.'));
     aside.append(note);
     layout.append(aside);
     container.append(layout);
 
-    const back = element('a', 'back-link', '← Kembali ke katalog');
-    back.href = './index.html#katalog';
+    const back = element('a', 'back-link', '← Back to catalog');
+    back.href = './index.html#catalog';
     container.append(back);
   }
 

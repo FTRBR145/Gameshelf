@@ -34,13 +34,13 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
 .section-wrap { width: min(100% - 64px, 1240px); margin-inline: auto; }
 .site-header { width: min(100% - 64px, 1312px); height: 88px; margin-inline: auto; display: flex; align-items: center; gap: 70px; }
 .brand { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; font: 700 24px/1 'Outfit', 'Segoe UI', sans-serif; letter-spacing: -.045em; }
-.brand-mark { display: inline-grid; place-items: center; width: 31px; height: 31px; color: var(--pink); font: 400 28px/1 Georgia, serif; text-shadow: 0 0 24px rgba(249, 143, 202, .55); }
+.brand-mark { display: inline-grid; place-items: center; width: 31px; height: 31px; color: var(--pink); font: 400 28px/1 Georgia, serif; }
 .brand-accent { color: var(--pink); }
 .site-nav { display: flex; align-items: center; gap: 35px; margin-left: 10px; }
 .nav-link { position: relative; padding: 32px 0; color: #bbc3d9; font-size: 13px; font-weight: 700; transition: color .2s; }
 .nav-link:hover, .nav-link.is-active { color: #fff; }
 .nav-link.is-active::after { content: ''; position: absolute; left: 0; right: 0; bottom: 23px; height: 2px; border-radius: 2px; background: var(--pink); }
-.header-label { margin-left: auto; color: #8290b3; font: 700 10px/1 'Outfit', sans-serif; letter-spacing: .19em; white-space: nowrap; }
+.header-label { margin-left: auto; color: #aeb8d2; font: 700 11px/1 'Outfit', sans-serif; letter-spacing: .12em; white-space: nowrap; }
 .header-label span { padding-left: 7px; color: var(--pink); font-size: 16px; }
 
 .hero { position: relative; isolation: isolate; width: min(100% - 32px, 1376px); min-height: 460px; margin: 0 auto; border: 1px solid rgba(229, 226, 255, .14); border-radius: 24px; overflow: hidden; background: linear-gradient(120deg, #1f264d, #4e4b80 65%, #a36889); box-shadow: 0 24px 80px rgba(0, 0, 0, .22); }
@@ -49,7 +49,7 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
 .hero-copy { padding: 92px 0 86px 7.4%; width: min(850px, 80%); }
 .eyebrow { margin-bottom: 24px; color: var(--pink); font: 700 11px/1.2 'Outfit', sans-serif; letter-spacing: .22em; }
 .eyebrow-line { display: inline-block; width: 22px; height: 1px; margin: 0 10px 4px 0; background: currentColor; }
-.hero h1 { margin-bottom: 18px; font-size: clamp(42px, 5.2vw, 73px); font-weight: 700; line-height: 1.04; letter-spacing: -.052em; }
+.hero h1 { margin-bottom: 18px; font-size: clamp(42px, 5.2vw, 73px); font-weight: 700; line-height: 1.04; letter-spacing: -.04em; }
 .hero h1 em, .guide-heading h2 em { color: var(--pink); font-family: Georgia, serif; font-weight: 400; }
 .hero-description { max-width: 470px; margin-bottom: 29px; color: #d9def1; font-size: 15px; line-height: 1.75; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 25px; min-height: 48px; padding: 0 21px; border: 1px solid transparent; border-radius: 8px; font: 700 13px/1 'DM Sans', sans-serif; transition: transform .2s, background .2s, border-color .2s; }
@@ -68,17 +68,17 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
 .game-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .game-grid:has(.game-card:only-child) { grid-template-columns: minmax(0, 1fr); }
 .game-card { min-width: 0; }
-.game-card-link { position: relative; display: block; height: 360px; overflow: hidden; border: 1px solid rgba(242, 232, 255, .23); border-radius: 18px; background: linear-gradient(120deg, #31395a, #8d6687); transition: transform .25s, border-color .25s, box-shadow .25s; }
+.game-card-link { display: grid; grid-template-columns: minmax(190px, 260px) minmax(0, 1fr); min-height: 360px; gap: 18px; padding: 20px; overflow: hidden; border: 1px solid rgba(242, 232, 255, .23); border-radius: 18px; background: linear-gradient(120deg, #202a50, #26294a 58%, #42325b); transition: transform .25s, border-color .25s, box-shadow .25s; }
 .game-card-link:hover { transform: translateY(-5px); border-color: rgba(248, 166, 208, .74); box-shadow: 0 22px 50px rgba(0, 0, 0, .3); }
-.game-card-image { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; transition: transform .5s; }
+.game-card-art { display: grid; place-items: center; min-width: 0; overflow: hidden; border-radius: 11px; background: rgba(8, 15, 38, .35); }
+.game-card-image { width: auto; max-width: 100%; max-height: 320px; object-fit: contain; border-radius: 8px; box-shadow: 0 14px 30px rgba(0, 0, 0, .28); transition: transform .5s; }
 .game-card-link:hover .game-card-image { transform: scale(1.035); }
-.card-shade { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(7, 12, 32, .96) 0%, rgba(11, 16, 35, .7) 44%, rgba(11, 16, 35, .13) 100%); }
-.game-card-content { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 27px 33px 28px; }
+.game-card-content { display: flex; flex-direction: column; min-width: 0; padding: 13px 20px 9px; }
 .game-card-meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-.mini-pill { padding: 9px 12px; border: 1px solid rgba(255, 255, 255, .34); border-radius: 5px; background: rgba(12, 17, 35, .25); color: #fce1ee; font: 700 10px/1 'Outfit', sans-serif; letter-spacing: .13em; backdrop-filter: blur(5px); }
-.card-file-count { color: #f6f0fa; font: 700 10px/1 'Outfit', sans-serif; letter-spacing: .17em; }
+.mini-pill { padding: 9px 12px; border: 1px solid rgba(255, 255, 255, .34); border-radius: 5px; background: rgba(12, 17, 35, .25); color: #fce1ee; font: 700 11px/1 'Outfit', sans-serif; letter-spacing: .1em; backdrop-filter: blur(5px); }
+.card-file-count { color: #f6f0fa; font: 700 11px/1 'Outfit', sans-serif; letter-spacing: .1em; }
 .game-card-subtitle { margin: auto 0 4px; color: #f9bada; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.game-card-title { max-width: 580px; margin: 0; font-size: clamp(33px, 4vw, 53px); font-weight: 600; line-height: 1; letter-spacing: -.045em; }
+.game-card-title { max-width: 580px; margin: 0; font-size: clamp(32px, 4vw, 53px); font-weight: 600; line-height: 1.05; letter-spacing: -.04em; }
 .game-card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .28); font-size: 12px; font-weight: 700; }
 .circle-arrow { display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid rgba(255, 255, 255, .5); border-radius: 50%; font-size: 17px; font-weight: 400; }
 
@@ -101,13 +101,13 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
 .breadcrumbs a { color: var(--pink); font-weight: 700; }
 .breadcrumbs a:hover, .back-link:hover { text-decoration: underline; }
 .breadcrumbs span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.detail-hero { position: relative; isolation: isolate; display: flex; align-items: flex-end; min-height: 370px; overflow: hidden; border: 1px solid rgba(242, 232, 255, .21); border-radius: 19px; background: linear-gradient(120deg, #232b50, #9a7090); }
-.detail-hero-image { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: center 48%; }
-.detail-hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8, 14, 33, .92), rgba(10, 16, 39, .38) 78%), linear-gradient(0deg, rgba(8, 13, 34, .7), transparent 55%); }
-.detail-hero-copy { max-width: 720px; padding: 38px 5.5% 43px; }
-.detail-eyebrow { margin-bottom: 38px; color: #ffbadb; }
+.detail-hero { position: relative; isolation: isolate; display: grid; grid-template-columns: 235px minmax(0, 1fr); align-items: center; gap: 47px; min-height: 390px; padding: 32px 5.5%; overflow: hidden; border: 1px solid rgba(242, 232, 255, .21); border-radius: 19px; background: url('./coastal-dusk.webp') center 48% / cover no-repeat, #232b50; }
+.detail-hero-image { width: 235px; height: 318px; object-fit: contain; border-radius: 9px; box-shadow: 0 18px 40px rgba(0, 0, 0, .36); }
+.detail-hero-shade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8, 14, 33, .8), rgba(8, 14, 33, .83)), linear-gradient(0deg, rgba(8, 13, 34, .55), transparent 55%); }
+.detail-hero-copy { max-width: 720px; }
+.detail-eyebrow { margin-bottom: 35px; color: #ffbadb; }
 .detail-subtitle { margin-bottom: 5px; color: var(--pink); font-size: 13px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; }
-.detail-hero h1 { margin: 0 0 11px; font-size: clamp(40px, 5.6vw, 71px); font-weight: 600; line-height: 1.02; letter-spacing: -.05em; }
+.detail-hero h1 { margin: 0 0 11px; font-size: clamp(40px, 5.6vw, 69px); font-weight: 600; line-height: 1.02; letter-spacing: -.04em; }
 .detail-full-title { margin: 0; color: #dce1f1; font-size: 12px; }
 .detail-layout { display: grid; grid-template-columns: minmax(0, 1.85fr) minmax(270px, .85fr); gap: 48px; margin-top: 62px; }
 .downloads h2 { margin-bottom: 12px; font-size: clamp(31px, 3.1vw, 43px); font-weight: 600; letter-spacing: -.04em; }
@@ -118,7 +118,7 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
 .file-info { min-width: 0; }
 .file-title-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .file-title-row h3 { margin: 0; font-size: 18px; font-weight: 600; }
-.file-kind { padding: 5px 7px; border: 1px solid rgba(186, 165, 255, .34); border-radius: 4px; color: #cabdff; font: 700 9px/1 'Outfit', sans-serif; letter-spacing: .08em; }
+.file-kind { padding: 5px 7px; border: 1px solid rgba(186, 165, 255, .34); border-radius: 4px; color: #cabdff; font: 700 11px/1 'Outfit', sans-serif; letter-spacing: .05em; }
 .file-kind.is-update { border-color: rgba(248, 166, 208, .35); color: var(--pink); }
 .file-name { overflow: hidden; margin: 9px 0 8px; color: #9da9c9; font-size: 11px; line-height: 1.4; text-overflow: ellipsis; white-space: nowrap; }
 .file-size { color: #e2e4f1; font-size: 12px; font-weight: 700; }
@@ -143,6 +143,9 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
   .guide-section { grid-template-columns: 1fr; gap: 36px; }
   .guide-heading h2 { max-width: none; }
   .detail-layout { gap: 25px; }
+  .game-card-link { grid-template-columns: 190px minmax(0, 1fr); min-height: 330px; }
+  .game-card-image { max-height: 288px; }
+  .game-card-content { padding-inline: 11px; }
 }
 
 @media (max-width: 760px) {
@@ -158,19 +161,20 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
   .hero-copy { width: 100%; padding: 75px 25px 94px; }
   .hero h1 { font-size: clamp(42px, 9vw, 60px); }
   .hero-description { font-size: 14px; }
-  .hero-bottom { left: 25px; right: 25px; bottom: 20px; font-size: 8px; }
+  .hero-bottom { left: 25px; right: 25px; bottom: 20px; font-size: 10px; }
   .catalog-section { padding-block: 77px 94px; }
   .section-heading { align-items: start; }
-  .section-aside { margin-top: 6px; font-size: 9px; }
+  .section-aside { margin-top: 6px; font-size: 11px; }
   .game-grid { grid-template-columns: 1fr; }
-  .game-card-link { height: 360px; }
+  .game-card-link { grid-template-columns: 205px minmax(0, 1fr); min-height: 325px; }
   .guide-grid { gap: 15px; }
   .guide-item h3 { font-size: 17px; }
   .site-footer { gap: 10px 25px; flex-wrap: wrap; }
   .site-footer > span { margin-left: auto; }
   .detail-main { padding-top: 23px; }
-  .detail-hero { min-height: 340px; }
-  .detail-hero-copy { padding: 34px 25px; }
+  .detail-hero { grid-template-columns: 170px minmax(0, 1fr); gap: 23px; min-height: 320px; padding: 26px; }
+  .detail-hero-image { width: 170px; height: 230px; }
+  .detail-hero h1 { font-size: clamp(35px, 5.6vw, 51px); }
   .detail-layout { grid-template-columns: 1fr; margin-top: 48px; }
   .download-aside { min-height: 0; }
 }
@@ -178,12 +182,14 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
 @media (max-width: 520px) {
   .site-nav { gap: 14px; }
   .hero h1 { font-size: 43px; }
-  .eyebrow { font-size: 9px; }
+  .eyebrow { font-size: 11px; }
   .hero-bottom span:last-child { display: none; }
   .section-heading { flex-direction: column; gap: 10px; }
   .section-aside { margin: 0; }
-  .game-card-link { height: 400px; }
-  .game-card-content { padding: 22px 22px 23px; }
+  .game-card-link { grid-template-columns: 1fr; gap: 0; padding: 12px; }
+  .game-card-art { min-height: 278px; }
+  .game-card-image { max-height: 250px; }
+  .game-card-content { min-height: 230px; padding: 20px 11px 11px; }
   .game-card-subtitle { font-size: 11px; }
   .game-card-title { font-size: 37px; }
   .guide-grid { grid-template-columns: 1fr; gap: 26px; }
@@ -192,8 +198,11 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
   .guide-section { padding-bottom: 75px; }
   .site-footer { align-items: start; }
   .site-footer p { flex-basis: 100%; order: 3; }
-  .detail-hero { min-height: 375px; }
-  .detail-hero h1 { font-size: 43px; }
+  .detail-hero { grid-template-columns: 1fr; justify-items: center; gap: 23px; padding: 27px 24px 34px; }
+  .detail-hero-image { width: 184px; height: 248px; }
+  .detail-hero-copy { text-align: center; }
+  .detail-eyebrow { margin-bottom: 18px; }
+  .detail-hero h1 { font-size: 42px; }
   .file-card { grid-template-columns: 27px minmax(0, 1fr); gap: 10px; padding: 17px; }
   .file-card .button-download { grid-column: 2; justify-self: start; margin-top: 3px; }
 }

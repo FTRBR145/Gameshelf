@@ -1,15 +1,15 @@
 # GameShelf
 
-Katalog unduhan game statis berbasis HTML, CSS, dan JavaScript biasa. File game tetap berada di Google Drive; situs ini hanya membuka tautannya.
+A static game download catalog built with plain HTML, CSS, and JavaScript. Game files stay on Google Drive; this site only opens their links.
 
-## Menjalankan lokal
+## Run locally
 
-Jalankan server statis dari folder proyek, misalnya `python -m http.server 8000`, lalu buka `http://localhost:8000`.
+Start a static server from the project folder, for example `python -m http.server 8000`, then open `http://localhost:8000`.
 
-## Menambah game
+## Add a game
 
-Tambahkan objek baru ke daftar `window.GAMES` di `assets/games.js`. Ikuti tipe JSDoc `Game` dan `GameFile` di bagian atas berkas. Kartu katalog dan halaman `game.html?game=slug` dibuat otomatis dari daftar tersebut. Simpan ilustrasi di `assets/` dan isi path relatifnya pada properti `artwork`.
+Add an object to the `window.GAMES` list in `assets/games.js`. Follow the `Game` and `GameFile` JSDoc types at the top of that file. Catalog cards and `game.html?game=slug` pages are generated from the list. Save each cover in `assets/` and set its relative path in the `artwork` property.
 
 ## GitHub Pages
 
-Unggah isi folder ini ke repositori GitHub publik. Pada **Settings → Pages**, pilih **Deploy from a branch**, branch **main**, folder **/(root)**. Situs akan tersedia di `https://NAMA-PENGGUNA.github.io/NAMA-REPOSITORI/` setelah proses Pages selesai.
+Upload this folder to a public GitHub repository. Under **Settings → Pages**, choose **Deploy from a branch**, branch **main**, folder **/(root)**. The site will be available at `https://USERNAME.github.io/REPOSITORY/` after Pages finishes deploying.
