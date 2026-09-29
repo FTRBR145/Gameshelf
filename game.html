@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1023" />
+    <meta name="description" content="Detail game dan tautan unduhan di GameShelf." />
+    <title>Detail Game — GameShelf</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script defer src="./assets/games.js"></script>
+    <script defer src="./assets/site.js"></script>
+  </head>
+  <body data-page="detail">
+    <a class="skip-link" href="#main">Lewati ke konten</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="GameShelf, halaman utama">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>Game<span class="brand-accent">Shelf</span></span>
+        </a>
+        <nav class="site-nav" aria-label="Navigasi utama">
+          <a class="nav-link" href="./index.html#katalog">Katalog</a>
+          <a class="nav-link" href="./index.html#panduan">Panduan</a>
+        </nav>
+        <span class="header-label">YOUR NEXT STORY STARTS HERE <span aria-hidden="true">✧</span></span>
+      </header>
+
+      <main id="main" class="detail-main section-wrap">
+        <nav class="breadcrumbs" aria-label="Jejak halaman"><a href="./index.html#katalog">Katalog</a><span aria-hidden="true">/</span><span id="breadcrumb-current">Detail game</span></nav>
+        <div id="detail-content" aria-live="polite"></div>
+        <noscript><p class="notice">Aktifkan JavaScript untuk melihat detail dan tautan unduhan.</p></noscript>
+      </main>
+
+      <footer class="site-footer section-wrap">
+        <a class="brand footer-brand" href="./index.html"><span class="brand-mark" aria-hidden="true">✦</span><span>Game<span class="brand-accent">Shelf</span></span></a>
+        <p>Katalog kecil untuk cerita yang besar.</p>
+        <span>© <span data-year>2026</span> GameShelf</span>
+      </footer>
+    </div>
+  </body>
+</html>

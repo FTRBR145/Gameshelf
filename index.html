@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1023" />
+    <meta name="description" content="GameShelf — katalog game dengan tautan unduhan yang rapi dan mudah diikuti." />
+    <title>GameShelf — Temukan cerita berikutnya</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script defer src="./assets/games.js"></script>
+    <script defer src="./assets/site.js"></script>
+  </head>
+  <body data-page="catalog">
+    <a class="skip-link" href="#main">Lewati ke konten</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html" aria-label="GameShelf, halaman utama">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>Game<span class="brand-accent">Shelf</span></span>
+        </a>
+        <nav class="site-nav" aria-label="Navigasi utama">
+          <a class="nav-link is-active" href="#katalog" aria-current="page">Katalog</a>
+          <a class="nav-link" href="#panduan">Panduan</a>
+        </nav>
+        <span class="header-label">YOUR NEXT STORY STARTS HERE <span aria-hidden="true">✧</span></span>
+      </header>
+
+      <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-art" aria-hidden="true"></div>
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span> THE GAME COLLECTION</p>
+            <h1 id="hero-title">Satu cerita lagi,<br /><em>sebelum hari berakhir.</em></h1>
+            <p class="hero-description">Jelajahi koleksi game, temukan file yang kamu butuhkan, dan lanjutkan petualanganmu.</p>
+            <a class="button button-primary hero-button" href="#katalog">Lihat koleksi <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-bottom" aria-hidden="true">
+            <span>01 / GAME COLLECTION</span>
+            <span>SCROLL TO EXPLORE ↓</span>
+          </div>
+        </section>
+
+        <section class="catalog-section section-wrap" id="katalog" aria-labelledby="catalog-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow section-eyebrow"><span class="eyebrow-line"></span> PILIH PETUALANGANMU</p>
+              <h2 id="catalog-title">Koleksi <span class="text-gradient">game.</span></h2>
+            </div>
+            <p class="section-aside" id="game-count">Memuat koleksi...</p>
+          </div>
+          <div class="game-grid" id="game-grid" aria-live="polite"></div>
+          <noscript><p class="notice">Aktifkan JavaScript untuk melihat katalog game.</p></noscript>
+        </section>
+
+        <section class="guide-section section-wrap" id="panduan" aria-labelledby="guide-title">
+          <div class="guide-heading">
+            <p class="eyebrow section-eyebrow"><span class="eyebrow-line"></span> SEBELUM BERMAIN</p>
+            <h2 id="guide-title">Unduh dengan <em>mudah.</em></h2>
+          </div>
+          <div class="guide-grid">
+            <div class="guide-item"><span class="guide-number">01</span><h3>Pilih game</h3><p>Buka halaman detail untuk melihat semua file yang tersedia.</p></div>
+            <div class="guide-item"><span class="guide-number">02</span><h3>Unduh semua part</h3><p>Untuk arsip yang terbagi, unduh setiap part utama dan simpan dalam folder yang sama.</p></div>
+            <div class="guide-item"><span class="guide-number">03</span><h3>Ikuti halaman Drive</h3><p>Tombol unduh membuka Google Drive. Konfirmasi file berukuran besar mungkin ditampilkan oleh Drive.</p></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer section-wrap">
+        <a class="brand footer-brand" href="./index.html"><span class="brand-mark" aria-hidden="true">✦</span><span>Game<span class="brand-accent">Shelf</span></span></a>
+        <p>Katalog kecil untuk cerita yang besar.</p>
+        <span>© <span data-year>2026</span> GameShelf</span>
+      </footer>
+    </div>
+  </body>
+</html>
