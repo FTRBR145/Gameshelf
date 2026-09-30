@@ -110,7 +110,7 @@
       ? 'Download every main part first and keep them in the same folder. Updates are listed separately.'
       : extraFiles.length
         ? 'Download the main archive first. Additional files are listed separately.'
-        : 'One game archive is available. Open it on Google Drive to download.'));
+        : 'One game archive is available. Open its download link to continue.'));
 
     const list = element('ol', 'file-list');
     game.files.forEach((file, index) => {
@@ -142,7 +142,7 @@
     aside.append(element('h2', '', 'Ready to begin?'));
     aside.append(element('p', '', mainFileCount > 1
       ? 'Keep all main parts in the same folder. Download buttons open external pages in new tabs; short links may require a CAPTCHA.'
-      : 'Download buttons open external pages in new tabs. Follow the page to reach the file.'));
+      : 'Download buttons open external pages in new tabs; short links may require a CAPTCHA.'));
     aside.append(element('p', '', 'This is a Nintendo Switch game. Playing on a PC requires a compatible emulator; I use Ryujinx.'));
     extraFiles.forEach((file) => {
       const note = element('div', 'aside-note');
