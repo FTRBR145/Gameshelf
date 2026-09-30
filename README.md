@@ -10,6 +10,8 @@ Start a static server from the project folder, for example `python -m http.serve
 
 Add an object to the `window.GAMES` list in `assets/games.js`. Follow the `Game` and `GameFile` JSDoc types at the top of that file. Catalog cards and `game.html?game=slug` pages are generated from the list. Save each cover in `assets/` and set its relative path in the `artwork` property.
 
+Add the new game's URL to `sitemap.xml` so search engines can discover it directly.
+
 ## GitHub Pages
 
 Upload this folder to a public GitHub repository. Under **Settings → Pages**, choose **Deploy from a branch**, branch **main**, folder **/(root)**. The site will be available at `https://USERNAME.github.io/REPOSITORY/` after Pages finishes deploying.

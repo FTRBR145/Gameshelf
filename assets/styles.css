@@ -65,6 +65,8 @@ h1, h2, h3 { font-family: 'Outfit', 'Segoe UI', sans-serif; }
 .section-heading h2, .guide-heading h2, .tools-section h2 { margin: 0; font-size: clamp(34px, 4vw, 55px); line-height: 1.06; letter-spacing: -.045em; }
 .text-gradient { color: var(--pink); }
 .section-aside { margin: 0 2px 8px 0; color: #8c98b8; font: 700 11px/1 'Outfit', sans-serif; letter-spacing: .18em; white-space: nowrap; }
+.catalog-intro { margin: -5px 0 25px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+.catalog-intro a { color: #f4bee1; text-underline-offset: 3px; }
 .game-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .game-grid:has(.game-card:only-child) { grid-template-columns: minmax(0, 1fr); }
 .game-card { min-width: 0; }

@@ -68,6 +68,10 @@
 
     if (!game) {
       document.title = 'Game not found — GameShelf';
+      const robots = document.createElement('meta');
+      robots.name = 'robots';
+      robots.content = 'noindex';
+      document.head.append(robots);
       container.append(element('h1', 'not-found-title', 'Game not found.'));
       container.append(element('p', 'muted', 'This game is not in the catalog yet.'));
       const back = element('a', 'button button-primary', 'Back to catalog');
@@ -77,7 +81,11 @@
     }
 
     document.title = `${game.title} — GameShelf`;
-    document.querySelector('meta[name="description"]').content = `Download links for ${game.title}.`;
+    document.querySelector('meta[name="description"]').content = `${game.title}: Nintendo Switch visual novel files, sizes, and download notes on GameShelf.`;
+    const canonical = document.createElement('link');
+    canonical.rel = 'canonical';
+    canonical.href = new URL(`./game.html?game=${encodeURIComponent(game.slug)}`, window.location.href).href;
+    document.head.append(canonical);
     document.getElementById('breadcrumb-current').textContent = game.shortTitle;
     const mainFileCount = game.files.filter((file) => file.kind === 'main').length;
     const extraFiles = game.files.filter((file) => file.kind !== 'main');
