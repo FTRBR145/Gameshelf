@@ -7,8 +7,8 @@
   });
 
   function formatBytes(bytes) {
-    const unit = bytes >= 1073741824 ? 'GiB' : 'MiB';
-    const divisor = unit === 'GiB' ? 1073741824 : 1048576;
+    const unit = bytes >= 1000000000 ? 'GB' : 'MB';
+    const divisor = unit === 'GB' ? 1000000000 : 1000000;
     return `${new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(bytes / divisor)} ${unit}`;
   }
 
