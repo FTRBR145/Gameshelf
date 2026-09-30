@@ -77,7 +77,7 @@
     }
 
     document.title = `${game.title} — GameShelf`;
-    document.querySelector('meta[name="description"]').content = `Download files for ${game.title} on Google Drive.`;
+    document.querySelector('meta[name="description"]').content = `Download links for ${game.title}.`;
     document.getElementById('breadcrumb-current').textContent = game.shortTitle;
     const mainFileCount = game.files.filter((file) => file.kind === 'main').length;
     const extraFiles = game.files.filter((file) => file.kind !== 'main');
@@ -125,11 +125,11 @@
       info.append(element('p', 'file-name', file.filename));
       info.append(element('span', 'file-size', formatBytes(file.sizeBytes)));
       item.append(info);
-      const link = element('a', 'button button-download', 'Open in Drive ↗');
+      const link = element('a', 'button button-download', 'Open download link ↗');
       link.href = file.url;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.setAttribute('aria-label', `Open ${file.label} in Google Drive, new tab`);
+      link.setAttribute('aria-label', `Open ${file.label} download link, new tab`);
       item.append(link);
       list.append(item);
     });
@@ -141,8 +141,8 @@
     aside.append(element('p', 'eyebrow', 'DOWNLOAD NOTE'));
     aside.append(element('h2', '', 'Ready to begin?'));
     aside.append(element('p', '', mainFileCount > 1
-      ? 'Keep all main parts in the same folder. Each download button opens its file on Google Drive.'
-      : 'Each download button opens its file on Google Drive. Drive may ask you to confirm large files.'));
+      ? 'Keep all main parts in the same folder. Download buttons open external pages in new tabs; short links may require a CAPTCHA.'
+      : 'Download buttons open external pages in new tabs. Follow the page to reach the file.'));
     aside.append(element('p', '', 'This is a Nintendo Switch game. Playing on a PC requires a compatible emulator; I use Ryujinx.'));
     extraFiles.forEach((file) => {
       const note = element('div', 'aside-note');
