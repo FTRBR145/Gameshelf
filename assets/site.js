@@ -143,6 +143,7 @@
     aside.append(element('p', '', mainFileCount > 1
       ? 'Keep all main parts in the same folder. Each download button opens its file on Google Drive.'
       : 'Each download button opens its file on Google Drive. Drive may ask you to confirm large files.'));
+    aside.append(element('p', '', 'This is a Nintendo Switch game. Playing on a PC requires a compatible emulator; I use Ryujinx.'));
     extraFiles.forEach((file) => {
       const note = element('div', 'aside-note');
       note.append(element('span', 'note-dot'));
